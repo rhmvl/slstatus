@@ -70,3 +70,4 @@ source code. This keeps it fast, secure and simple.
 Todo
 ----
 Cleaning up the whole codebase it the goal before thinking about a release.
+# slstatus
