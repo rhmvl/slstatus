@@ -63,12 +63,14 @@ static const char unknown_str[] = "n/a";
  */
 
 static const char vol[]         = "amixer sget Master | grep 'Mono' | awk -F'[][]' '{ print $2 }' | grep -oh '[0-9]*'";
+static const char wifi[]        = "[[ -z \"$(nmcli -t -f NAME,DEVICE c show --active | grep wlan0 | cut -d':' -f1)\" ]] && echo \"NONE\" || nmcli -t -f NAME,DEVICE c show --active | grep wlan0 | cut -d':' -f1";
 
 static const struct arg args[] = {
         /* function format          argument */
         { cpu_perc,             " [CPU: %s%%] ",      NULL },
         // { ram_used,             " %s",         NULL },
         { ram_perc,             " [RAM: %s%%] ",      NULL },
+        { run_command,          " [WIFI: %s]",        wifi },
         // { run_command,          " %s%% ",      "xbacklight -get" },
         { battery_perc,         " [BAT: %s%%] ",       "BAT1" },
         // { battery_state,        "(%s) ",        "BAT0" },
